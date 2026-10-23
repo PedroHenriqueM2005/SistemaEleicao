@@ -7,7 +7,17 @@ public class Candidato
 {
     public Candidato(string nome, int numero)
     {
-        Nome = nome;
+        if (string.IsNullOrWhiteSpace(nome))
+        {
+            throw new ArgumentException("O nome do candidato é obrigatório.", nameof(nome));
+        }
+
+        if (numero <= 0)
+        {
+            throw new ArgumentException("O número do candidato deve ser um inteiro positivo.", nameof(numero));
+        }
+
+        Nome = nome.Trim();
         Numero = numero;
     }
 
