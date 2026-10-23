@@ -1,4 +1,4 @@
-namespace SistemaEleicao;
+namespace SistemaEleicao.Core;
 
 /// <summary>Total de votos recebidos por um candidato.</summary>
 public record ResultadoCandidato(Candidato Candidato, int TotalVotos);

@@ -1,3 +1,5 @@
+using SistemaEleicao.Core;
+
 namespace SistemaEleicao.Tests;
 
 public class ApuracaoTests

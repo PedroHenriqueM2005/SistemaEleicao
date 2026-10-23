@@ -1,4 +1,4 @@
-namespace SistemaEleicao;
+namespace SistemaEleicao.Core;
 
 /// <summary>
 /// Representa um candidato que concorre à eleição.

@@ -1,4 +1,4 @@
-namespace SistemaEleicao;
+namespace SistemaEleicao.Core;
 
 /// <summary>
 /// Classe de gerência da eleição: candidatos, eleitores, votos e apuração.

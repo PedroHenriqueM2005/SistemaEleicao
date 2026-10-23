@@ -1,4 +1,4 @@
-using SistemaEleicao;
+using SistemaEleicao.Core;
 
 const string Titulo = "SISTEMA DE ELEIÇÃO";
 
