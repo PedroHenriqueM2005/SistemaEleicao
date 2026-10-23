@@ -116,7 +116,28 @@ public class EleicaoManager
     }
 
     /// <summary>Apura a eleição e retorna o resultado consolidado.</summary>
-    public ResultadoEleicao Apurar() => throw new NotImplementedException();
+    public ResultadoEleicao Apurar()
+    {
+        var votosPorCandidato = _votosPorCandidato
+            .Select(kv => new ResultadoCandidato(_candidatos[kv.Key], kv.Value))
+            .OrderByDescending(v => v.TotalVotos)
+            .ThenBy(v => v.Candidato.Numero)
+            .ToList();
+
+        Candidato? vencedor = null;
+        if (votosPorCandidato.Count > 0)
+        {
+            var maisVotado = votosPorCandidato[0];
+            var empatados = votosPorCandidato.Count(v => v.TotalVotos == maisVotado.TotalVotos);
+
+            if (maisVotado.TotalVotos > 0 && empatados == 1)
+            {
+                vencedor = maisVotado.Candidato;
+            }
+        }
+
+        return new ResultadoEleicao(votosPorCandidato, _votosNulos, _votosBrancos, vencedor);
+    }
 
     private static void ValidarTituloEleitor(string tituloEleitor)
     {
