@@ -115,6 +115,9 @@ public class EleicaoManager
         return total;
     }
 
+    /// <summary>Apura a eleição e retorna o resultado consolidado.</summary>
+    public ResultadoEleicao Apurar() => throw new NotImplementedException();
+
     private static void ValidarTituloEleitor(string tituloEleitor)
     {
         if (string.IsNullOrWhiteSpace(tituloEleitor))
